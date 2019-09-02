@@ -25,7 +25,11 @@
 	</repositories>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
 
 		<!-- Mybatis -->
 		<dependency>
