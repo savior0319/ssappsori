@@ -1,20 +1,22 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>쌉소리</title>
 </head>
+
 <body>
-	<h1>테스트</h1>
-	<button onclick="test();">버튼요</button>
+	<div class="main" style="width: 350px; margin: 0 auto;">
+		<h1 align="center">힝구리바보</h1>
+		<img src="/img/ssappsori.jpg" style="width: 350px; height: 350px;">
+	</div>
 </body>
 
 
 <script>
-	function test() {
-		window.location.href = "test.do";
-	}
+	
 </script>
 </html>
