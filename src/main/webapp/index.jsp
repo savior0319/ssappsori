@@ -26,6 +26,9 @@
 		<div align="center">
 			<img src="/img/ssappsori.jpg" style="width: 200px; height: 200px;">
 		</div>
+		<br>
+		<br>
+		<br>
 	</div><jsp:include page="/Layouts/footer.jsp"></jsp:include>
 </body>
 
