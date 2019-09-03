@@ -16,7 +16,7 @@
 	<br>
 	<div class="ui main text container">
 		<div class="ui message" align="center">
-			<div class="ui large header">힝구리바보</div>
+			<div class="ui large header">푸엑</div>
 		</div>
 		<form>
 			<textarea name="editor" id="editor" rows="20" cols="80"> 
