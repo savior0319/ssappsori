@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
 
@@ -32,7 +33,7 @@ public class MainControllerImpl implements MainController {
 
 	/* 게시판 이미지 업로드 */
 	@Override
-	@RequestMapping(value = "/fileupload.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/fileupload.ssap", method = RequestMethod.POST)
 	@ResponseBody
 	public String fileUpload(HttpServletRequest req, HttpServletResponse resp, MultipartHttpServletRequest multiFile)
 			throws Exception {
@@ -80,6 +81,13 @@ public class MainControllerImpl implements MainController {
 			}
 		}
 		return null;
+	}
+
+	@RequestMapping(value = "/board.ssap", method = RequestMethod.GET)
+	public ModelAndView board() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board");
+		return mv;
 	}
 
 }

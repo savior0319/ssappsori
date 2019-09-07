@@ -38,7 +38,7 @@
 
 	<filter-mapping>
 		<filter-name>characterEncoding</filter-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.ssap</url-pattern>
 	</filter-mapping>
 
 	<!-- The definition of the Root Spring Container shared by all Servlets 
@@ -70,7 +70,7 @@
 	<!-- Servlet Mapping -->
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.ssap</url-pattern>
 	</servlet-mapping>
 
 </web-app>
