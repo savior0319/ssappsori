@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="main">
+
+	<select id="selectAll" resultType="main">
+		SELECT EMP_ID AS empId
+		FROM
+			EMPLOYEE
+	</select>
+
+	<select id="selectBoardList" resultType="board">
+		SELECT
+			BOARD_NO AS boardNo,
+			SUBJECT AS subject,
+			CONTENTS AS contents,
+			DELETE_YN AS deleteYn,
+			INSERT_ID AS inserId,
+			MODIFY_ID AS modifyId,
+			INSERT_DATE AS insertDate,
+			MODIFY_DATE AS modifyDate
+		FROM
+			BOARDM
+	</select>
+
+</mapper>

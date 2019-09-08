@@ -3,7 +3,8 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="my.spring.main.MainVO" alias="main"/>
+		<typeAlias type="my.spring.vo.MainVO" alias="main"/>
+		<typeAlias type="my.spring.vo.BoardVO" alias="board"/>
 	</typeAliases>
 
 </configuration>

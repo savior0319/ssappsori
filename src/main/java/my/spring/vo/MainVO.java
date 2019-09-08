@@ -1,4 +1,4 @@
-package my.spring.main;
+package my.spring.vo;
 
 public class MainVO {
 	

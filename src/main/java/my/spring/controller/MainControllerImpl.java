@@ -1,10 +1,11 @@
-package my.spring.main;
+package my.spring.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -21,6 +22,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
+
+import my.spring.service.MainService;
+import my.spring.vo.BoardVO;
 
 @Controller
 public class MainControllerImpl implements MainController {
@@ -83,9 +87,14 @@ public class MainControllerImpl implements MainController {
 		return null;
 	}
 
+	/* 게시판 글 목록 */
 	@RequestMapping(value = "/board.ssap", method = RequestMethod.GET)
 	public ModelAndView board() {
 		ModelAndView mv = new ModelAndView();
+		
+	   ArrayList<BoardVO> aList = mService.selectBoardList();
+	   System.out.println(aList.get(0).getSubject());
+		
 		mv.setViewName("board");
 		return mv;
 	}
