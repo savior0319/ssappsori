@@ -30,11 +30,11 @@
 			<version>3.4</version>
 		</dependency>
 
-		<dependency>
+	<!--<dependency>
 			<groupId>org.lazyluke</groupId>
 			<artifactId>log4jdbc-remix</artifactId>
 			<version>0.2.7</version>
-		</dependency>
+		</dependency>-->  
 
 		<!-- Mybatis -->
 		<dependency>
