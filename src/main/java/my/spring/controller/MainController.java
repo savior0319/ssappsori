@@ -1,5 +1,7 @@
 package my.spring.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,5 +16,7 @@ public interface MainController {
 	public ModelAndView board(HttpServletRequest request);
 
 	public ModelAndView boardContent(int index);
+
+	public ModelAndView boardSave(Map<String, Object> map);
 
 }

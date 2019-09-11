@@ -14,4 +14,6 @@ public interface MainService {
 
 	public BoardVO selectBoardContent(int index);
 
+	public int insertBoardContent(BoardVO bv);
+
 }

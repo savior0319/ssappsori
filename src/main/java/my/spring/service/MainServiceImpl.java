@@ -59,4 +59,10 @@ public class MainServiceImpl implements MainService {
 		return mdDao.selectBoardContent(session, index);
 	}
 
+	// 게시판 글 저장
+	@Override
+	public int insertBoardContent(BoardVO bv) {
+		return mdDao.insertBoardContent(session, bv);
+	}
+
 }

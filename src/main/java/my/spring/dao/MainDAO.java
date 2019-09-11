@@ -105,4 +105,9 @@ public class MainDAO {
 		return session.selectOne("main.selectBoardContent", index);
 	}
 
+	// 게시판 글 저장
+	public int insertBoardContent(SqlSessionTemplate session, BoardVO bv) {
+		return session.insert("main.insertBoardContent", bv);
+	}
+
 }

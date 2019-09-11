@@ -26,10 +26,9 @@
 			<br> 
 			작성자 - ${boardContent.insertId}
 			<br> 	
-			작성일 -
-			<fmt:formatDate value="${boardContent.insertDate}" pattern="yyyy-MM-dd HH:mm"></fmt:formatDate>
+			작성일 - <fmt:formatDate value="${boardContent.insertDate}" pattern="yyyy-MM-dd HH:mm"></fmt:formatDate>
 		</div>
-		<div style="width: 100%; min-height: 400px; border: solid 2px lightgray; text-align: left;">${boardContent.contents}</div>
+		<div style="width: 100%; min-height: 400px; padding:10px; border: solid 2px lightgray; text-align: left;">${boardContent.contents}</div>
 		<br>
 		<div align="center">
 			<button class="ui orange button" onclick="back();">글목록</button>

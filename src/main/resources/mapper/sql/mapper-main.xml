@@ -48,5 +48,26 @@
 		WHERE BOARD_NO = #{index}
 		AND DELETE_YN != 1
 	</select>
+	
+	<insert id="insertBoardContent" parameterType="board">
+		INSERT INTO BOARDM(
+			BOARD_NO,
+			SUBJECT,
+			CONTENTS,
+			DELETE_YN,
+			INSERT_ID,
+			MODIFY_ID,
+			INSERT_DATE,
+			MODIFY_DATE)
+		VALUES(
+			BOARDSEQ.NEXTVAL,
+			#{subject},
+			#{contents},
+			'0',
+			#{insertId},
+			#{insertId},
+			SYSDATE,
+			SYSDATE)
+	</insert>
 
 </mapper>

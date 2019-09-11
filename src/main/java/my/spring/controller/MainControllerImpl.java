@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -120,6 +122,39 @@ public class MainControllerImpl implements MainController {
 		mv.addObject("boardContent", bVo);
 
 		return mv;
+	}
+
+	// 글 저장
+	@Override
+	@RequestMapping(value = "/boardsave.ssap")
+	public ModelAndView boardSave(@RequestParam Map<String, Object> paraMap) {
+
+		ModelAndView mv = new ModelAndView();
+
+		if (paraMap.get("pwd").toString().equals("starboy")) {
+
+			BoardVO bv = new BoardVO();
+			int result = 0;
+
+			bv.setSubject(paraMap.get("subject").toString());
+			bv.setInsertId(paraMap.get("insertId").toString());
+			bv.setContents(paraMap.get("content").toString());
+
+			result = mService.insertBoardContent(bv);
+
+			System.out.println(result);
+
+			if (result > 0) {
+				mv.setViewName("success");
+			} else {
+				mv.setViewName("fail");
+			}
+
+			return mv;
+		} else {
+			mv.setViewName("passwordfail");
+			return mv;
+		}
 	}
 
 }

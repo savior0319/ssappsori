@@ -19,9 +19,16 @@
 		<div class="ui message" align="center">
 			<div class="ui large header">푸엑</div>
 		</div>
-		<form>
-			<textarea name="editor" id="editor" rows="20" cols="80"> 
+		<form class="ui form" action="/boardsave.ssap" method="POST">
+			<input name="subject" placeholder="글 제목을 입력하세요" style="margin-bottom: 5px;"></input> 
+			<input name="insertId" placeholder="작성자를 입력하세요" style="margin-bottom: 8px;"></input>
+			<textarea name="content" id="editor" rows="20" cols="80"> 
         </textarea>
+			<br>
+			<input type="password" name="pwd" placeholder="비밀번호" style="margin-bottom: 8px;"></input>
+			<div align="center">
+				<button class="ui primary button" onclick="save();">글쓰기</button>
+			</div>
 		</form>
 		<br>
 		<div align="center">
@@ -36,7 +43,14 @@
 <script>
 	CKEDITOR.replace('editor', {
 		height : 500,
-		filebrowserUploadUrl : 'fileupload.ssap'
+		filebrowserUploadUrl : '/fileupload.ssap'
 	});
+
+	function save() {
+		if (CKEDITOR.instances.editor.getData().length < 1) {
+			alert("내용을 입력해 주세요.");
+			return;
+		}
+	}
 </script>
 </html>
