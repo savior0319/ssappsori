@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -25,6 +24,7 @@ import com.google.gson.JsonObject;
 
 import my.spring.service.MainService;
 import my.spring.vo.BoardVO;
+import my.spring.vo.PageDataVO;
 
 @Controller
 public class MainControllerImpl implements MainController {
@@ -88,14 +88,37 @@ public class MainControllerImpl implements MainController {
 	}
 
 	/* 게시판 글 목록 */
+	@Override
 	@RequestMapping(value = "/board.ssap", method = RequestMethod.GET)
-	public ModelAndView board() {
+	public ModelAndView board(HttpServletRequest request) {
+
+		int page;
 		ModelAndView mv = new ModelAndView();
-		
-	   ArrayList<BoardVO> aList = mService.selectBoardList();
-	   System.out.println(aList.get(0).getSubject());
-		
+
+		if (request.getParameter("page") == null) {
+			page = 1;
+		} else {
+			page = Integer.parseInt(request.getParameter("page"));
+		}
+
+		PageDataVO pd = mService.selectBoardList(page);
+
 		mv.setViewName("board");
+		mv.addObject("boardList", pd);
+		return mv;
+	}
+
+	// 글 선택 보기
+	@Override
+	@RequestMapping(value = "/boardcontent.ssap")
+	public ModelAndView boardContent(int index) {
+
+		BoardVO bVo = mService.selectBoardContent(index);
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("boardcontent");
+		mv.addObject("boardContent", bVo);
+
 		return mv;
 	}
 

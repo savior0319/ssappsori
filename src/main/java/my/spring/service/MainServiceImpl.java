@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import my.spring.dao.MainDAO;
 import my.spring.vo.BoardVO;
 import my.spring.vo.MainVO;
+import my.spring.vo.PageDataVO;
 
 @Service(value = "MainService")
 public class MainServiceImpl implements MainService {
@@ -29,10 +30,33 @@ public class MainServiceImpl implements MainService {
 		return mdDao.test(session);
 	}
 
+	// 게시판 리스트
 	@Override
-	public ArrayList<BoardVO> selectBoardList() {
-		return mdDao.selectBoardList(session);
+	public PageDataVO selectBoardList(int page) {
 
+		int recordCountPerPage = 25;
+
+		int naviCountPerPage = 5;
+
+		ArrayList<BoardVO> aList = mdDao.getPage(session, page, recordCountPerPage);
+
+		String pageNavi = mdDao.getPageNavi(session, page, recordCountPerPage, naviCountPerPage);
+
+		PageDataVO pd = null;
+
+		if (!aList.isEmpty() && !pageNavi.isEmpty()) {
+			pd = new PageDataVO();
+			pd.setArrayList(aList);
+			pd.setPageNavi(pageNavi);
+		}
+		return pd;
+
+	}
+
+	// 글 선택 보기
+	@Override
+	public BoardVO selectBoardContent(int index) {
+		return mdDao.selectBoardContent(session, index);
 	}
 
 }

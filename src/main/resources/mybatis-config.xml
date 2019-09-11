@@ -5,6 +5,7 @@
 	<typeAliases>
 		<typeAlias type="my.spring.vo.MainVO" alias="main"/>
 		<typeAlias type="my.spring.vo.BoardVO" alias="board"/>
+		<typeAlias type="my.spring.vo.PageDataVO" alias="page"/>
 	</typeAliases>
 
 </configuration>

@@ -5,21 +5,48 @@
 	<select id="selectAll" resultType="main">
 		SELECT EMP_ID AS empId
 		FROM
-			EMPLOYEE
+		EMPLOYEE
 	</select>
 
-	<select id="selectBoardList" resultType="board">
+
+	<select id="getPage" resultType="board" parameterType="page">
 		SELECT
-			BOARD_NO AS boardNo,
+		BOARD_NO AS boardNo,
+		SUBJECT AS subject,
+		CONTENTS AS contents,
+		INSERT_ID
+		AS insertId,
+		INSERT_DATE AS insertDate
+		FROM
+		(
+		SELECT
+		BOARDM.*,
+		ROW_NUMBER()
+		OVER(ORDER BY BOARD_NO DESC) AS NUM
+		FROM
+		BOARDM)
+		WHERE
+		DELETE_YN != 1
+		AND
+		NUM BETWEEN #{start} AND #{end}
+	</select>
+
+	<select id="count" resultType="Integer">
+		SELECT COUNT(*)
+		FROM BOARDM
+	</select>
+	
+	<select id="selectBoardContent" resultType="board" parameterType="Integer">
+		SELECT
+			BOARD_NO AS BoardNo,
 			SUBJECT AS subject,
 			CONTENTS AS contents,
-			DELETE_YN AS deleteYn,
-			INSERT_ID AS inserId,
-			MODIFY_ID AS modifyId,
-			INSERT_DATE AS insertDate,
-			MODIFY_DATE AS modifyDate
+			INSERT_ID AS insertId,
+			INSERT_DATE AS insertDate
 		FROM
 			BOARDM
+		WHERE BOARD_NO = #{index}
+		AND DELETE_YN != 1
 	</select>
 
 </mapper>
