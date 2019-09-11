@@ -20,14 +20,14 @@
 			<div class="ui large header">푸엑</div>
 		</div>
 		<form class="ui form" action="/boardsave.ssap" method="POST">
-			<input name="subject" placeholder="글 제목을 입력하세요" style="margin-bottom: 5px;"></input> 
-			<input name="insertId" placeholder="작성자를 입력하세요" style="margin-bottom: 8px;"></input>
+			<input name="subject" placeholder="글 제목을 입력하세요" style="margin-bottom: 5px;" id="subject"></input>
+			<input name="insertId" placeholder="작성자를 입력하세요" style="margin-bottom: 8px;" id="insertId"></input>
 			<textarea name="content" id="editor" rows="20" cols="80"> 
         </textarea>
 			<br>
-			<input type="password" name="pwd" placeholder="비밀번호" style="margin-bottom: 8px;"></input>
+			<input type="password" name="pwd" placeholder="비밀번호" style="margin-bottom: 8px;" id="password"></input>
 			<div align="center">
-				<button class="ui primary button" onclick="save();">글쓰기</button>
+				<button class="ui primary button" onclick="return save();">글쓰기</button>
 			</div>
 		</form>
 		<br>
@@ -47,9 +47,25 @@
 	});
 
 	function save() {
+
+		if ($("#subject").val() == '') {
+			alert("글 제목을 입력해 주세요.");
+			return false;
+		}
+
+		if ($("#insertId").val() == '') {
+			alert("작성자를 입력해 주세요.");
+			return false;
+		}
+
 		if (CKEDITOR.instances.editor.getData().length < 1) {
 			alert("내용을 입력해 주세요.");
-			return;
+			return false;
+		}
+
+		if ($("#password").val() == '') {
+			alert("비밀번호를 입력해 주세요.");
+			return false;
 		}
 	}
 </script>
