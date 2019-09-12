@@ -4,8 +4,7 @@
 
 	<select id="selectAll" resultType="main">
 		SELECT EMP_ID AS empId
-		FROM
-		EMPLOYEE
+		FROM EMPLOYEE
 	</select>
 
 
@@ -17,23 +16,20 @@
 		INSERT_ID
 		AS insertId,
 		INSERT_DATE AS insertDate
-		FROM
-		(
+		FROM(
 		SELECT
 		BOARDM.*,
 		ROW_NUMBER()
 		OVER(ORDER BY BOARD_NO DESC) AS NUM
-		FROM
-		BOARDM
-        WHERE
-        DELETE_YN != 1)
-        WHERE
-		NUM BETWEEN #{start} AND #{end}
+		FROM BOARDM
+        WHERE DELETE_YN != 1)
+        WHERE NUM BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="count" resultType="Integer">
 		SELECT COUNT(*)
 		FROM BOARDM
+		WHERE DELETE_YN != 1
 	</select>
 	
 	<select id="selectBoardContent" resultType="board" parameterType="Integer">
