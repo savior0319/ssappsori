@@ -126,7 +126,7 @@ public class MainControllerImpl implements MainController {
 
 	// 글 저장
 	@Override
-	@RequestMapping(value = "/boardsave.ssap")
+	@RequestMapping(value = "/boardsave.ssap", method = RequestMethod.POST)
 	public ModelAndView boardSave(@RequestParam Map<String, Object> paraMap) {
 
 		ModelAndView mv = new ModelAndView();

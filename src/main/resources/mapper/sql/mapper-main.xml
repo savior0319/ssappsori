@@ -24,10 +24,10 @@
 		ROW_NUMBER()
 		OVER(ORDER BY BOARD_NO DESC) AS NUM
 		FROM
-		BOARDM)
-		WHERE
-		DELETE_YN != 1
-		AND
+		BOARDM
+        WHERE
+        DELETE_YN != 1)
+        WHERE
 		NUM BETWEEN #{start} AND #{end}
 	</select>
 
