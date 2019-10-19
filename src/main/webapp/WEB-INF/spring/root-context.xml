@@ -8,9 +8,9 @@
 	<!-- Data Source Bean (Oracle) -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-        <property name="url" value="jdbc:oracle:thin:@savior0319.synology.me:1521:xe" />
-        <property name="username" value="anhj" />
-        <property name="password" value="anhj" />
+        <property name="url" value="jdbc:oracle:thin:@***.***.me:***:xe" />
+        <property name="username" value="***" />
+        <property name="password" value="***" />
         <property name="defaultAutoCommit" value="false"></property>
     </bean>
 
