@@ -18,9 +18,9 @@
 
 	<bean id="dataSourceOrg" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@savior0319.synology.me:1521:xe" />
-		<property name="username" value="anhj" />
-		<property name="password" value="anhj" />
+		<property name="url" value="jdbc:oracle:thin:@***.***.me:***:xe" />
+		<property name="username" value="***" />
+		<property name="password" value="***" />
 	</bean>
 
 	<!-- Mybatis 추가 (Mapper 경로는 수정해서 사용) -->
